@@ -1,0 +1,260 @@
+.grid-container {
+  display: grid;
+  grid-template-areas: 'header' 'main' 'footer';
+}
+
+.snowflake {
+  background-image: url(https://i.imgur.com/5U7SeXY.png);
+  width: 25px;
+  height: 25px;
+}
+
+@-webkit-keyframes snowflakes-fall {
+  0% {
+    top: -10%
+  }
+  100% {
+    top: 100%
+  }
+}
+
+@-webkit-keyframes snowflakes-shake {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px)
+  }
+  50% {
+    -webkit-transform: translateX(80px);
+    transform: translateX(80px)
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px)
+  }
+}
+
+@keyframes snowflakes-fall {
+  0% {
+    top: -10%
+  }
+  100% {
+    top: 100%
+  }
+}
+
+@keyframes snowflakes-shake {
+  0% {
+    transform: translateX(0px)
+  }
+  50% {
+    transform: translateX(80px)
+  }
+  100% {
+    transform: translateX(0px)
+  }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10%;
+  z-index: 9999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+  -webkit-animation-duration: 10s, 3s;
+  -webkit-animation-timing-function: linear, ease-in-out;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-play-state: running, running;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running
+}
+
+.snowflake:nth-of-type(0) {
+  left: 1%;
+  -webkit-animation-delay: 0s, 0s;
+  animation-delay: 0s, 0s
+}
+
+.snowflake:nth-of-type(1) {
+  left: 10%;
+  -webkit-animation-delay: 1s, 1s;
+  animation-delay: 1s, 1s
+}
+
+.snowflake:nth-of-type(2) {
+  left: 20%;
+  -webkit-animation-delay: 6s, .5s;
+  animation-delay: 6s, .5s
+}
+
+.snowflake:nth-of-type(3) {
+  left: 30%;
+  -webkit-animation-delay: 4s, 2s;
+  animation-delay: 4s, 2s
+}
+
+.snowflake:nth-of-type(4) {
+  left: 40%;
+  -webkit-animation-delay: 2s, 2s;
+  animation-delay: 2s, 2s
+}
+
+.snowflake:nth-of-type(5) {
+  left: 50%;
+  -webkit-animation-delay: 8s, 3s;
+  animation-delay: 8s, 3s
+}
+
+.snowflake:nth-of-type(6) {
+  left: 60%;
+  -webkit-animation-delay: 6s, 2s;
+  animation-delay: 6s, 2s
+}
+
+body {
+  background: linear-gradient(35deg, green, white);
+}
+
+.item-1 {
+  margin: 4vw;
+  grid-area: header;
+  text-align: center;
+  font-family: Arial Black;
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  padding-bottom: 4vw;
+}
+
+.item-2 {
+  grid-area: 'main';
+  position: relative;
+}
+
+
+.item-2>p {
+  opacity: 0%;
+}
+
+.item-3 {
+  grid-area: footer;
+  text-align: center;
+  margin: 3vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .item-2 {
+    background: url(https://i.imgur.com/gttaDkF.png);
+    margin: auto;
+    width: 100px;
+    height: 120px;
+    animation: saltito 2s infinite;
+  }
+
+@keyframes saltito {
+  0% {
+    background-position: 0;
+  }
+  50% {
+    background-position: -180;
+  }
+  100% {
+    background-position: 0;
+    transform:scaleX(-1);
+  
+}
+  }
+
+  .item-2:hover {
+    background: url(https://i.imgur.com/TtCJ2Xx.png);
+    margin: auto;
+    width: 100px;
+    height: 105px;
+    animation: none;
+  }
+  .item-2:hover>p {
+    opacity: 100%;
+    text-align: center;
+    color: rgb(248, 226, 226);
+    position: absolute;
+    font-size: 1.5vw;
+    top: 10px;
+    left: 30px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .item-2 {
+    margin: auto;
+    background: url(https://i.imgur.com/bE8la1f.png?1);
+    width: 170px;
+    height: 210px;  
+    animation: saltito 2s infinite;
+    }
+  
+  @keyframes saltito {
+    0% {
+      background-position: 0;
+    }
+    50% {
+      background-position: -190;
+      transform: skew(5deg, 10deg);
+    }
+    100% {
+      background-position: 0;
+    
+  }
+  }
+  .item-2:hover {
+    background: url(https://i.imgur.com/SijFYMm.png?1);
+    margin: auto;
+    width: 190px;
+    height: 210px;
+  }
+  .item-2:hover>p {
+    opacity: 100%;
+    text-align: center;
+    position: absolute;
+    top: 25px;
+    left: 65px;
+  }
+}
+
+a {
+  margin: 20px;
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: 3vw;
+}
+
+a:hover {
+  background-color: rgb(133, 43, 43);
+  border-radius: 20%;
+}
+
+a:active {
+  border-radius: 20%;
+  animation-name: colore;
+  animation-duration: 2s;
+}
+
+@keyframes colore {
+  from {
+    background-color: rgb(77, 184, 91);
+  }
+  to {
+    background-color: rgb(133, 43, 43);
+  }
+}
+
+p {
+  font-weight: bold;
+}
